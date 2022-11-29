@@ -17,13 +17,14 @@ export class BoardComponent implements OnInit{
 // Initialize game 
   ngOnInit(){
     this.newGame();
-    this.xIsNext = true;
-    this.winner = null;
   }
 
 // initialize 9 square as null
   newGame() {
+    // alert("new game");
     this.squares = Array(9).fill(null);
+    this.xIsNext = true;
+    this.winner = null;
   }
 
   // get player
@@ -37,6 +38,7 @@ export class BoardComponent implements OnInit{
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
+
     this.winner = this.calculateWinner();
   }
 
@@ -63,7 +65,6 @@ export class BoardComponent implements OnInit{
     }
     return null;
   }
-
 
   
 }
