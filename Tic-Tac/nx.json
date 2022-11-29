@@ -19,7 +19,7 @@
           "test",
           "e2e"
         ],
-        "accessToken": "NDA5ZGRkMTAtMjg2My00OGNlLWIzZmYtMWVkNTlhNjcyNTc5fHJlYWQtd3JpdGU="
+        "accessToken": "ODc0OGQ2ZDQtNDdhNi00MTFlLWI3NGYtNWI5ZGQxNjBlNTRjfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -28,11 +28,33 @@
       "dependsOn": [
         "^build"
       ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/jest.preset.js"
+      ]
     }
   },
   "workspaceLayout": {
     "appsDir": "projects",
     "libsDir": "projects"
   },
-  "defaultProject": "Tic-Tac"
+  "defaultProject": "Tic-Tac",
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  }
 }
