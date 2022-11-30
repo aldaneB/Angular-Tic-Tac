@@ -11,6 +11,10 @@ export class BoardComponent implements OnInit{
   squares: any[];//Used to track the nine different square
   xIsNext : boolean; //Helps to determine the current player
   winner : string; //Winner is either 'X' or 'O'
+  count : number;
+  idxArray: any[] = [];
+  max : number;
+  progress : number;
 
   constructor(){}
 
@@ -25,6 +29,8 @@ export class BoardComponent implements OnInit{
     this.squares = Array(9).fill(null);
     this.xIsNext = true;
     this.winner = null;
+    this.count = 0;
+    this.progress = 0;
   }
 
   // get player
@@ -37,9 +43,16 @@ export class BoardComponent implements OnInit{
     if(!this.squares[idx]){
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
+      this.max = 9;
+      // console.log(this.max);
+      this.idxArray.push(idx)
+      this.count = this.idxArray.length;
+      this.progress = Math.ceil((this.count / this.max) *100);
+    
     }
 
     this.winner = this.calculateWinner();
+    
   }
 
   calculateWinner() {
@@ -66,5 +79,11 @@ export class BoardComponent implements OnInit{
     return null;
   }
 
-  
+ 
+
+ gameProgress(){
+  return 9;
+ }
+
+ 
 }
