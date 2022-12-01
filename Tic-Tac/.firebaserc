@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "tic-tac-3af54"
-  }
+    "default": "tic-tac-ab9ad",
+    "prod": "tic-tac-ab9ad"
+  },
+  "targets": {},
+  "etags": {}
 }
