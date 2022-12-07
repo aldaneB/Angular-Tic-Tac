@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -15,9 +15,17 @@ export class BoardComponent implements OnInit{
   idxArray: any[] = [];
   max : number;
   progress : number;
-
+  private context: any;
+  private gameBoard: ElementRef;
   constructor(){}
 
+   
+  
+  ngAfterViewInit(){
+    this.context = this.gameBoard.nativeElement.getContext("2d");
+  }
+
+  
 // Initialize game 
   ngOnInit(){
     this.newGame();
@@ -80,10 +88,6 @@ export class BoardComponent implements OnInit{
   }
 
  
-
- gameProgress(){
-  return 9;
- }
-
+  
  
 }
